@@ -15,19 +15,19 @@ codegen utility, and then need to be the same version. Example:
 
 ```go
 func Codegen() error {
-	version, err := magex.ModuleVersion("github.com/a-h/templ")
+  version, err := magex.ModuleVersion("github.com/a-h/templ")
 
-	if err != nil {
-		return err
-	}
+  if err != nil {
+    return err
+  }
 
-	path, err := magex.MaybeInstallToolV("templ", "github.com/a-h/templ/cmd/templ", version)
+  path, err := magex.MaybeInstallToolV("templ", "github.com/a-h/templ/cmd/templ", version)
 
-	if err != nil {
-		return err
-	}
+  if err != nil {
+    return err
+  }
 
-    return sh.Run(path, "generate")
+  return sh.Run(path, "generate")
 }
 ```
 
@@ -38,13 +38,13 @@ installs it.
 
 ```go
 func Dev() error {
-	path, err := magex.MaybeInstallToolV("air", "github.com/cosmtrek/air", "v1.49.0")
+  path, err := magex.MaybeInstallToolV("air", "github.com/cosmtrek/air", "v1.49.0")
 
-	if err != nil {
-		return err
-	}
+  if err != nil {
+    return err
+  }
 
-	return sh.RunV(path)
+  return sh.RunV(path)
 }
 ```
 
