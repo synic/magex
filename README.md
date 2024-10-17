@@ -21,7 +21,7 @@ func Codegen() error {
     return err
   }
 
-  path, err := magex.MaybeInstallToolV("templ", "github.com/a-h/templ/cmd/templ", version)
+  path, err := magex.MaybeInstallTool("templ", "github.com/a-h/templ/cmd/templ", version)
 
   if err != nil {
     return err
@@ -38,7 +38,7 @@ installs it.
 
 ```go
 func Dev() error {
-  path, err := magex.MaybeInstallToolV("air", "github.com/cosmtrek/air", "v1.49.0")
+  path, err := magex.MaybeInstallTool("air", "github.com/cosmtrek/air", "v1.49.0")
 
   if err != nil {
     return err
@@ -48,6 +48,22 @@ func Dev() error {
 }
 ```
 
-#### `MaybeInstallToolV`
+#### `MaybeInstallToolToDestination`
 
-Same as `MaybeInstallTool`, but sends output to stdout.
+Checks to see if a go command line tool exists at the given location. If not,
+it installs it. Useful if you want to install to `./bin` and avoid changing the
+host `GOPATH`.
+
+```go
+func Dev() error {
+  path, err := magex.MaybeInstallToolToDestination(
+    "air", "github.com/cosmtrek/air", "v1.49.0", "bin",
+  )
+
+  if err != nil {
+    return err
+  }
+
+  return sh.RunV(path)
+}
+```
