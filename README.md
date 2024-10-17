@@ -21,7 +21,9 @@ func Codegen() error {
     return err
   }
 
-  path, err := magex.MaybeInstallTool("templ", "github.com/a-h/templ/cmd/templ", version)
+  path, err := magex.MaybeInstallTool(
+    "templ", "github.com/a-h/templ/cmd/templ", version,
+  )
 
   if err != nil {
     return err
@@ -38,7 +40,9 @@ installs it.
 
 ```go
 func Dev() error {
-  path, err := magex.MaybeInstallTool("air", "github.com/cosmtrek/air", "v1.49.0")
+  path, err := magex.MaybeInstallTool(
+    "air", "github.com/cosmtrek/air", "v1.49.0",
+  )
 
   if err != nil {
     return err
