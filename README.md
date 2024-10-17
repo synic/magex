@@ -1,3 +1,8 @@
+# ARCHIVED
+
+This module is archived, as it was unnecessary. Check out
+https://github.com/uwu-tools/magex for an alternative.
+
 # MAGEX
 
 Extension functions and utilities to augment the Go mage build system:
